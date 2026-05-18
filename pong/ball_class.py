@@ -21,12 +21,6 @@ class Ball(Turtle):
             self.sety(-265)
             self.dy *= -1
 
-        if self.xcor() > 380:
-            self.setx(380)
-            self.dx *= -1
-        elif self.xcor() < -380:
-            self.setx(-380)
-            self.dx *= -1
     def paddle_collision(self):
         self.dx *= -1
 

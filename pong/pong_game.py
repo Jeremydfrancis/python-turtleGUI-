@@ -1,13 +1,21 @@
-from turtle import Turtle,Screen
-from paddle_class import Paddle
+from turtle import Turtle, Screen
+from .paddle_class import Paddle
 import os
 import time
+from .scoreboard_class import Scoreboard
+from .ball_class import Ball
 
-from ball_class import Ball
 
 def collision_bool(ball, left_paddle, right_paddle):
-    return (ball.distance(left_paddle) < 50 and ball.xcor() < -330) or \
-           (ball.distance(right_paddle) < 50 and ball.xcor() > 330)
+    hit_left = (ball.distance(left_paddle) < 50
+                and ball.xcor() < -330
+                and ball.dx < 0)  # only if moving LEFT toward left paddle
+
+    hit_right = (ball.distance(right_paddle) < 50
+                 and ball.xcor() > 330
+                 and ball.dx > 0)  # only if moving RIGHT toward right paddle
+
+    return hit_left or hit_right
 
 def main():
     screen = Screen()
@@ -54,14 +62,29 @@ def main():
 
     screen.onkey(quit_game, "Escape")
     screen.listen()
-
+    left_score = Scoreboard(-200)
+    right_score = Scoreboard(200)
     while running[0]:
         time.sleep(0.026)
         ball.move_ball()
         if collision_bool(ball,left_paddle,right_paddle):
             ball.paddle_collision()
+        if ball.xcor() > 384:
+            left_score.increase_score()
+            ball.goto(0, 0)
+            screen.update()
+            time.sleep(1)
+            ball.dx = -8
+        elif ball.xcor() < -384:
+            right_score.increase_score()
+            ball.goto(0, 0)
+            screen.update()
+            time.sleep(1)
+            ball.dx = 8
+
 
         screen.update()
 
     screen.bye()
-main()
+if __name__ == "__main__":
+    main()

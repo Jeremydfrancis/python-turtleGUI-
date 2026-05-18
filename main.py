@@ -7,6 +7,7 @@ import hirst_painting
 import event_listeners
 import turtle_race
 from snake import snake_game
+from pong import pong_game
 
 
 def main():
@@ -19,8 +20,9 @@ def main():
                   "\n4). Draw Hirst Dot Painting."
                   "\n5). Free draw with turtle."
                   "\n6). Turtle Race."
-                  "\n7). Snake Game.\n")
-            if user_choice not in ["1", "2", "3", "4", "5", "6","7"]:
+                  "\n7). Snake Game."
+                  "\n8). Old School Pong\n")
+            if user_choice not in ["1", "2", "3", "4", "5", "6","7","8"]:
                 print("Please enter a valid option")
                 continue
             else:
@@ -68,6 +70,8 @@ def main():
             screen.exitonclick()
         elif user_choice == "7":
             snake_game.main()
+        elif user_choice == "8":
+            pong_game.main()
 
         print("Program ended")
     except ValueError as e:
