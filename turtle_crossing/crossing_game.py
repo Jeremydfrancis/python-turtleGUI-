@@ -14,7 +14,7 @@ def main():
     screen.bgcolor("white")
     Line()
     player = Player(screen)
-    cars = CarManager()
+    cars = CarManager(screen)
     scoreboard = Scoreboard()
     screen.listen()
     game_is_on = True
@@ -24,13 +24,14 @@ def main():
         time.sleep(0.1)
         screen.update()
         if player.ycor() > 230:
-            player.goto((0, -270))
+            player.goto((0, -280))
             scoreboard.increase_score()
             cars.increase_speed()
         for car in cars.all_cars:
             if player.distance(car) < 28:
                 scoreboard.game_over()
                 game_is_on = False
+                break
     screen.mainloop()
 if __name__ == "__main__":
     main()

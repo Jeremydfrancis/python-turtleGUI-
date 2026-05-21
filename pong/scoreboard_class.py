@@ -1,7 +1,6 @@
 from turtle import Turtle
 
 class Scoreboard(Turtle):
-
     def __init__(self,x_position):
         super().__init__()
         self.hideturtle()

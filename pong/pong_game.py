@@ -82,9 +82,7 @@ def main():
             time.sleep(1)
             ball.dx = 8
 
-
         screen.update()
-
     screen.bye()
 if __name__ == "__main__":
     main()
