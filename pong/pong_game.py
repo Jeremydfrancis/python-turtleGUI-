@@ -9,11 +9,11 @@ from .ball_class import Ball
 def collision_bool(ball, left_paddle, right_paddle):
     hit_left = (ball.distance(left_paddle) < 50
                 and ball.xcor() < -330
-                and ball.dx < 0)  # only if moving LEFT toward left paddle
+                and ball.dx < 0)
 
     hit_right = (ball.distance(right_paddle) < 50
                  and ball.xcor() > 330
-                 and ball.dx > 0)  # only if moving RIGHT toward right paddle
+                 and ball.dx > 0)
 
     return hit_left or hit_right
 
