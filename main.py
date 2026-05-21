@@ -45,8 +45,6 @@ def main():
             walk_turtle.pensize(5)
             for _ in range(int(iterations)):
                 random_walk.random_walk(walk_turtle)
-            screen.clear()
-            main()
         elif user_choice == "2":
             screen = Screen()
             shape_turtle = Turtle()
