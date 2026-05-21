@@ -18,6 +18,7 @@ def draw_grid(turtle, screen):
         turtle.dot(dot_size)
         turtle.forward(spacing)
 
+
     def new_line():
         position = list(turtle.position())
         position[0] = -width // 2 + 10
