@@ -6,15 +6,19 @@ class Snake:
     def __init__(self,screen):
         self.screen = screen
         self.all_segments = []
-        self.create_snake()
-        self.head = self.all_segments[0]
-        self.head.color("Red")
-        self.head.shape("triangle")
+        self.head = None
+        self.setup()
         self.screen.listen()
         self.screen.onkey(self.turn_up, "Up")
         self.screen.onkey(self.turn_down, "Down")
         self.screen.onkey(self.turn_left, "Left")
         self.screen.onkey(self.turn_right, "Right")
+
+    def setup(self):
+        self.create_snake()
+        self.head = self.all_segments[0]
+        self.head.color("Red")
+        self.head.shape("triangle")
 
     def create_snake(self):
         for position in STARTING_POSITIONS:
@@ -30,6 +34,12 @@ class Snake:
         self.all_segments.append(segment)
     def extend_snake(self):
         self.add_segment(self.all_segments[-1].position())
+
+    def reset_snake(self):
+        for seg in self.all_segments:
+            seg.hideturtle()
+        self.all_segments.clear()
+        self.setup()
 
     def turn_up(self):
         if self.head.heading() != 270:
