@@ -14,7 +14,7 @@ A Python Turtle-based interactive launcher featuring 9 mini-games and visual dem
 ## Getting Started
 
 ```bash
-python main.py
+python states_games.py
 ```
 
 A turtle window will open with a text prompt. Enter the number corresponding to what you want to run. After each demo or game ends, the launcher returns to the main menu.

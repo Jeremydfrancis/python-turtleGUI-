@@ -1,6 +1,7 @@
 import turtle as t
 from turtle import Screen, Turtle
 import random_walk
+from us_states_game import states_games
 import shapes
 import circle
 import hirst_painting
@@ -27,10 +28,11 @@ def main():
                     "6. Turtle Race\n"
                     "7. Snake Game\n"
                     "8. Pong\n"
-                    "9. Turtle Crossing")
+                    "9. Turtle Crossing\n"
+                    "10. US States Game\n")
                 if not user_choice:
                     return
-                if user_choice not in ["1","2","3","4","5","6","7","8","9"]:
+                if user_choice not in ["1","2","3","4","5","6","7","8","9","10"]:
                     screen.clear()
                     continue
                 else:
@@ -84,6 +86,8 @@ def main():
                 pong_game.main()
             elif user_choice == "9":
                 crossing_game.main()
+            elif user_choice == "10":
+                states_games.main()
             print("Program ended")
     except ValueError as e:
         print(f"Program ended: {e}")
